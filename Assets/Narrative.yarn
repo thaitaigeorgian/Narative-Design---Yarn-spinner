@@ -1,0 +1,130 @@
+﻿title: Start
+tags:
+position: -1087,2
+---
+Narrator: You stand at the edge of the dark Slime Forest, ready to embark on your adventure.
+    -> Enter the Slime Forest
+        Narrator: You take a deep breath and step into the misty forest.
+            -> Follow the left path
+                <<jump LeftPath>>
+            -> Follow the right path
+                <<jump RightPath>>
+    -> Turn back and leave
+        Narrator: You turn back, but slimes block your path.
+            -> Fight the slimes
+                <<jump FightSlimes>>
+            -> Run into the forest
+                <<jump RightPath>>
+===
+
+title: LeftPath
+position: -544,142
+---
+Narrator: The left path is calm, but soon you encounter a glowing blue slime.
+    -> Approach the blue slime
+        <<jump BlueSlime>>
+    -> Ignore the slime and continue
+        <<jump Restart>>
+===
+
+title: RightPath
+position: -1181,303
+---
+Narrator: The right path leads you to a cave filled with slime tracks. You sense something lurking within.
+    -> Enter the cave
+        <<jump EnterCave>>
+    -> Turn back and take the other path
+        <<jump LeftPath>>
+===
+
+title: BlueSlime
+position: -843,405
+---
+Narrator: The blue slime speaks! "I am the Guardian of the forest. Will you protect this land?"
+    -> Swear to protect the forest
+        <<jump SwearToProtect>>
+    -> Refuse and demand the treasure
+        <<jump RefuseDemand>>
+===
+
+title: SwearToProtect
+position: -547,532
+---
+Narrator: The slime smiles, revealing a hidden path to the treasure. You are now the Guardian of the forest.
+Ending: Guardian of the Forest
+<<jump Restart>>
+===
+
+title: RefuseDemand
+position: -855,658
+---
+Narrator: The slime grows dark and slimes overwhelm you.
+Ending: Overwhelmed by Slimes
+<<jump Restart>>
+===
+
+title: EnterCave
+position: -1095,506
+---
+Narrator: You face the massive King Slime inside the cave.
+    -> Fight the King Slime
+        <<jump FightKingSlime>>
+    -> Reason with the King Slime
+        <<jump ReasonWithKingSlime>>
+===
+
+title: FightKingSlime
+position: -439,770
+---
+Narrator: After a fierce battle, you defeat the King Slime and claim the treasure.
+Ending: Victor of the Slime Expedition
+<<jump Restart>>
+===
+
+title: ReasonWithKingSlime
+position: -1411,459
+---
+Narrator: You attempt to reason with the King Slime. It presents a riddle: "What has no legs, yet can move mountains?"
+    -> Water
+        <<jump RiddleCorrect>>
+    -> Wind
+        <<jump RiddleWrong>>
+===
+
+title: RiddleCorrect
+position: -1430,92
+---
+Narrator: "You are wise," says the King Slime. The treasure is yours.
+Ending: Clever Adventurer
+<<jump Restart>>
+===
+
+title: RiddleWrong
+position: -1178,838
+---
+Narrator: "Incorrect!" The King Slime unleashes a flood of slimes, overwhelming you.
+Ending: Overwhelmed by Slimes
+<<jump Restart>>
+===
+
+title: FightSlimes
+position: -923,181
+---
+Narrator: You bravely fight the slimes and make your way back into the forest.
+    -> Follow the left path
+        <<jump LeftPath>>
+    -> Follow the right path
+        <<jump RightPath>>
+===
+
+title: Restart
+position: -1383,1243
+---
+Narrator: Would you like to try again?
+    -> Yes, restart the adventure
+        <<jump Start>>
+    -> No, leave the forest
+        Narrator: You decide it's better to leave the mystery unsolved.
+Ending: The Adventure Left Behind
+===
+
