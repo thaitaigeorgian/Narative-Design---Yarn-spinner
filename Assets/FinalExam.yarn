@@ -1,0 +1,77 @@
+﻿title: Start
+---
+Narrator: Player stands at the starting line of the Scarlet Loop, ready to begin the race of their life.  
+Narrator: The sound of engines fills the air as Nova, your rival, gives you a sharp glance.  
+
+Nova: "You sure you’re ready for this, Kane?"  
+    -> "I was born ready, Nova." 
+        <<jump Node2A>>
+    -> "We'll see who crosses the finish line first." 
+        <<jump Node2B>>
+===
+title: Node2A
+---
+Narrator: You respond with confidence, gripping the wheel tighter as the countdown begins.  
+    -> "Push for an early lead." 
+        <<jump Node3>>
+    -> "Wait for the perfect moment to strike." 
+        <<jump Node3>>
+===
+title: Node2B
+---
+Narrator: You meet Nova's gaze with determination, letting her words roll off your back.  
+    -> "Push for an early lead." 
+        <<jump Node3>>
+    -> "Wait for the perfect moment to strike." 
+        <<jump Node3>>
+===
+title: Node3
+---
+Narrator: The race begins, and the Scarlet Loop lives up to its name with neon lights flashing past.  
+Narrator: The track splits ahead!  
+    -> "Take the shortcut on the left." 
+        <<jump Node4A>>
+    -> "Stick to the main track." 
+        <<jump Node4B>>
+===
+title: Node4A
+---
+Narrator: The shortcut narrows dangerously, but you hold your nerve.  
+Nova: "You really think that’s going to work, Kane?"  
+    -> "Ignore her and focus on the track." 
+        <<jump Node5>>
+    -> "Respond with a taunt." 
+        <<jump Node5>>
+===
+title: Node4B
+---
+Narrator: The main track offers more stability but less opportunity for overtaking.  
+Nova: "Sticking to the easy path, huh? Predictable."  
+    -> "Ignore her and focus on the track." 
+        <<jump Node5>>
+    -> "Respond with a taunt." 
+        <<jump Node5>>
+===
+title: Node5
+---
+Narrator: The final stretch is here, the crowd roaring as the finish line comes into view.  
+Narrator: Nova is right beside you!  
+    -> "Activate the nitro boost for a final push." 
+        <<jump EndingA>>
+    -> "Rely on your skill to edge her out." 
+        <<jump EndingB>>
+===
+title: EndingA
+---
+Narrator: You hit the nitro boost, surging ahead of Nova to cross the finish line first.  
+Narrator: Victory is yours, but your reckless move damages your racer. Nova glares at you, already plotting her revenge.  
+    -> Continue
+        <<jump Start>>
+===
+title: EndingB
+---
+Narrator: You hold steady, relying on your skill to overtake Nova at the last moment.  
+Narrator: You win by a hair’s breadth. The crowd erupts in cheers, and Nova smirks, impressed but not defeated.  
+    -> Continue
+        <<jump Start>>
+===
