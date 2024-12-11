@@ -1,77 +1,112 @@
 ﻿title: Start
 ---
-Narrator: Player stands at the starting line of the Scarlet Loop, ready to begin the race of their life.  
-Narrator: The sound of engines fills the air as Nova, your rival, gives you a sharp glance.  
+<<declare $imageName = "arbiter">>
+You stand on the starting line of the legendary Scarlet Loop, the most dangerous track in the Neon Wasteland. The crowd roars as the Arbiter's mechanical voice echoes through the arena.
 
-Nova: "You sure you’re ready for this, Kane?"  
-    -> "I was born ready, Nova." 
+Arbiter: Welcome to the Neon Races. Only the bold survive. Cross the Void Edge, or perish as fuel for the Core.
+<<set $imageName = "nova">>
+Nova: Back again, Kane? I thought you’d learned your lesson last time. This track chews up amateurs like you.
+
+    -> Respond with defiance.
         <<jump Node2A>>
-    -> "We'll see who crosses the finish line first." 
+    -> Stay silent and focus.
         <<jump Node2B>>
 ===
+
 title: Node2A
 ---
-Narrator: You respond with confidence, gripping the wheel tighter as the countdown begins.  
-    -> "Push for an early lead." 
+You glare at Nova.
+<<set $imageName = "kane">>
+Kane: This time, I’m taking it all back. Watch me.
+<<set $imageName = "arbiter">>
+Arbiter: Racers, prepare your vehicles. The Void Edge awaits.
+
+    -> Head to your racer confidently.
         <<jump Node3>>
-    -> "Wait for the perfect moment to strike." 
+    -> Take a moment to observe the competition.
         <<jump Node3>>
 ===
+
 title: Node2B
 ---
-Narrator: You meet Nova's gaze with determination, letting her words roll off your back.  
-    -> "Push for an early lead." 
+You ignore Nova, letting her taunts bounce off you. Instead, your eyes scan the track, memorizing every twist and turn.
+<<set $imageName = "arbiter">>
+Arbiter: Racers, prepare your vehicles. The Void Edge awaits.
+
+    -> Head to your racer confidently.
         <<jump Node3>>
-    -> "Wait for the perfect moment to strike." 
+    -> Pause to steady your nerves.
         <<jump Node3>>
 ===
+
 title: Node3
 ---
-Narrator: The race begins, and the Scarlet Loop lives up to its name with neon lights flashing past.  
-Narrator: The track splits ahead!  
-    -> "Take the shortcut on the left." 
+<<set $imageName = "instruction">>
+As you approach your racer, its neon chassis gleams under the arena lights. A holographic interface flickers to life, displaying your controls: Use [Space] to boost your speed. Use [Arrow Keys] to steer. Collect Power-Up Orbs to recharge your energy.
+<<set $imageName = "nova">>
+Nova: Hope you know how to handle that junk heap. You’ll need more than luck to survive.
+
+    -> Reply with a sharp comeback.
         <<jump Node4A>>
-    -> "Stick to the main track." 
+    -> Ignore her and focus on your vehicle.
         <<jump Node4B>>
 ===
+
 title: Node4A
 ---
-Narrator: The shortcut narrows dangerously, but you hold your nerve.  
-Nova: "You really think that’s going to work, Kane?"  
-    -> "Ignore her and focus on the track." 
-        <<jump Node5>>
-    -> "Respond with a taunt." 
+<<set $imageName = "kane">>
+Kane: Luck? I don’t need it. Skill will do just fine.
+
+The controls hum to life beneath your hands. The crowd chants your name as the Arbiter counts down.
+<<set $imageName = "arbiter">>
+Arbiter: Racers, take your positions.
+
+    -> Get ready for the countdown.
         <<jump Node5>>
 ===
+
 title: Node4B
 ---
-Narrator: The main track offers more stability but less opportunity for overtaking.  
-Nova: "Sticking to the easy path, huh? Predictable."  
-    -> "Ignore her and focus on the track." 
-        <<jump Node5>>
-    -> "Respond with a taunt." 
+You slide into your racer, tuning out the noise around you. The controls feel familiar, almost like an extension of yourself. This is where you belong.
+<<set $imageName = "arbiter">>
+Arbiter: Racers, take your positions.
+
+    -> Get ready for the countdown.
         <<jump Node5>>
 ===
+
 title: Node5
 ---
-Narrator: The final stretch is here, the crowd roaring as the finish line comes into view.  
-Narrator: Nova is right beside you!  
-    -> "Activate the nitro boost for a final push." 
-        <<jump EndingA>>
-    -> "Rely on your skill to edge her out." 
-        <<jump EndingB>>
+Your hands grip the controls as the lights above the track flicker from red to yellow. The crowd holds its breath.
+<<set $imageName = "nova">>
+Nova: Try to keep up, Kane. I don’t want this to be too easy.
+<<set $imageName = "arbiter">>
+Arbiter: Ready... Set...
+
+    -> The engines roar to life.
+        <<jump Ending1>>
+    -> You take a deep breath, steadying yourself.
+        <<jump Ending2>>
 ===
-title: EndingA
+
+title: Ending1
 ---
-Narrator: You hit the nitro boost, surging ahead of Nova to cross the finish line first.  
-Narrator: Victory is yours, but your reckless move damages your racer. Nova glares at you, already plotting her revenge.  
-    -> Continue
+<<set $imageName = "count">>
+The screen fades to black as the engines roar, and the countdown reaches zero.
+
+You are ready for the Neon Races.
+    -> Try again.
         <<jump Start>>
+<<end>>
 ===
-title: EndingB
+
+title: Ending2
 ---
-Narrator: You hold steady, relying on your skill to overtake Nova at the last moment.  
-Narrator: You win by a hair’s breadth. The crowd erupts in cheers, and Nova smirks, impressed but not defeated.  
-    -> Continue
+<<set $imageName = "count">>
+The screen fades to black as your focus sharpens, every nerve ready for the challenge ahead.
+
+You are ready for the Neon Races.
+    -> Try again.
         <<jump Start>>
+<<end>>
 ===
