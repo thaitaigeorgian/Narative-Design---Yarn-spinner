@@ -8,7 +8,7 @@ public class FarmingSystem : MonoBehaviour
 {
     public GameObject playerObject;
     public Tilemap farmTilemap;
-    public TileBase[] growthStages;
+    public TileBase[] growthStages;// 
     public TileBase groundTile;
     public float growthTime = 2f;
     // Start is called before the first frame update
@@ -20,22 +20,25 @@ public class FarmingSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 playerPos = playerObject.transform.position;
-        Vector3Int tilePos = farmTilemap.WorldToCell(playerPos);
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            Vector3 playerPos = playerObject.transform.position;
+            Vector3Int tilePos = farmTilemap.WorldToCell(playerPos);
             if (farmTilemap.GetTile(tilePos) != null)
             {
-                print("E farmTilemap");
-                farmTilemap.SetTile(tilePos, growthStages[0]);
-                StartCoroutine(GrowPlant(tilePos));
+                if (farmTilemap.GetTile(tilePos) == growthStages[growthStages.Length - 1])
+                {
+                    print("Plant is ready to harvested");
+                    farmTilemap.SetTile(tilePos, groundTile);
+                }
+                else
+                {
+                    print("E farmTilemap");
+                    farmTilemap.SetTile(tilePos, growthStages[0]);
+                    StartCoroutine(GrowPlant(tilePos));
+                }
             }
 
-        }
-        else if (Input.GetKeyDown(KeyCode.H) && farmTilemap.GetTile(tilePos) == growthStages[growthStages.Length - 1])
-        {
-            print("Plant is ready to harvested");
-            farmTilemap.SetTile(tilePos, groundTile);
         }
 
     }
